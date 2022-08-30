@@ -1,13 +1,20 @@
 import React from "react";
 
 class SearchBar extends React.Component {
+  state = { term: "Type a car model here" };
+
   render() {
     return (
       <div className="ui segment">
         <form className="ui form">
           <div className="field">
             <label>Image Search</label>
-            <input type="text" />
+            <input
+              type="text"
+              value={this.state.term}
+              onClick={() => this.setState({ term: "" })}
+              onChange={(e) => this.setState({ term: e.target.value })}
+            />
           </div>
         </form>
       </div>
